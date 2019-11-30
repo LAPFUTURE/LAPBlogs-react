@@ -17,13 +17,14 @@ class Nav extends React.Component {
 
     render() {
         return (
+            <div>
             <Menu
                 onClick={this.handleClick}
                 selectedKeys={[this.state.current]}
                 mode="horizontal"
+                className="space-around"
             >
                 {this.state.items.map(item => {
-                    console.log(item);
                     return (
                         <Menu.Item key={item.type}>
                             {item.path ? (
@@ -37,6 +38,13 @@ class Nav extends React.Component {
                     );
                 })}
             </Menu>
+            <style>{`
+                .space-around {
+                    display: flex;
+                    justify-content: space-around;
+                }
+            `}</style>
+            </div>
         );
     }
 }

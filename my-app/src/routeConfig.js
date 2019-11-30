@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Index from './Page/Index';
 import Main from './Page/Main';
 import Login from './Page/Login';
@@ -17,16 +17,16 @@ const routeConfig = [
     {
         path: '/main',
         component: Main,
-        childRoutes: [
-            {
-                path: 'path1',
-                component: () => <h1>path1</h1>,
-            },
-            {
-                path: 'path2',
-                component: () => <h1>path1</h1>,
-            },
-        ],
+        // childRoutes: [
+        //     {
+        //         path: 'path1',
+        //         component: () => <h1>path1</h1>,
+        //     },
+        //     {
+        //         path: 'path2',
+        //         component: () => <h1>path1</h1>,
+        //     },
+        // ],
     },
 ];
 export default routeConfig;

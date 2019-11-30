@@ -1,6 +1,11 @@
+const API = {
+    production: 'http://dwyapi.connectyoume.top',
+    development: 'http://dwyapi.connectyoume.top'
+};
 const request = (url, setting) => {
+    let URL = API[process.env.NODE_ENV] + url;
     if (setting) {
-        return fetch(url, {
+        return fetch(URL, {
             method: setting.method,
         })
             .then(res => {
@@ -17,7 +22,7 @@ const request = (url, setting) => {
                 Promise.reject(err);
             });
     } else {
-        return fetch(url, {
+        return fetch(URL, {
             method: 'post',
         }).then(res => {
             if (res.ok) {
