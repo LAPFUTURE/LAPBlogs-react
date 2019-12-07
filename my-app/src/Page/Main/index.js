@@ -62,11 +62,10 @@ class Index extends Component {
                 {
                     all.map(item => {
                         return (
-                            <Card title={<div style={{display:'flex'}}>
+                            <Card title={<div style={{display:'flex', justifyContent:'space-between', marginBottom: '20px'}}>
                                 {item.ptype}
                                 <Tag color="blue">{item.cname}</Tag>
                                 <Tag color="cyan">{item.ctime}</Tag>
-                                <Tag color="purple">{item.ptype}</Tag>
                             </div>} key={item.id}>
                                 <Tag color="green">{item.title}</Tag>
                             </Card>
