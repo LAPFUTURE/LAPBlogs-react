@@ -66,7 +66,9 @@ class Background extends Component {
             let t = p + (z() * 2 - 1.1) * f;
             return t > h || t < 0 ? y(p) : t;
         }
-        document.onclick = init;
+        if(!this.props.once){
+            document.onclick = init;
+        }
         // document.ontouchstart = init;
         init();
     }

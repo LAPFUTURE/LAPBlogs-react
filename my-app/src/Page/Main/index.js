@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
 import request from '../../Tools/fetch';
 import Nav from '../../Components/Nav';
 import Background from '../../Components/Background';
@@ -11,6 +10,7 @@ class Index extends Component {
         this.state = {
             quote: {},
             showTranslation: false,
+            all: [],
         };
         this.clickShowTran = this.clickShowTran.bind(this);
     }
@@ -19,10 +19,10 @@ class Index extends Component {
         this.setState({
             showTranslation: !showTranslation
         });
-        console.log(showTranslation)
     }
     componentDidMount() {
         this.ask();
+        this.getAll();
     }
     ask() {
         request('/quote/ask_quote').then(res => {
@@ -31,11 +31,18 @@ class Index extends Component {
             })
         });
     }
+    getAll() {
+        request('/article/get_all').then(res => {
+            this.setState({
+                all: res.data
+            })
+        });
+    }
     render() {
-        const { quote, showTranslation} = this.state;
+        const { quote, showTranslation, all} = this.state;
         return (
             <div>
-                <Background />
+                <Background once={true} />
                 <Nav
                     items={[
                         { type: 'home', path: '/' },
@@ -51,22 +58,21 @@ class Index extends Component {
                         <Tag onClick={this.clickShowTran} color="magenta">Show Translation</Tag>
                         {showTranslation && <span>{quote.translation}</span>}
                     </div>
-                    {/* <p>{this.state.quote.assign_date}</p>
-                    <p>{this.state.quote.author}</p>
-                    <p>{this.state.quote.picture_url}</p>
-                    <p>{this.state.quote.translation}</p> */}
                 </Card>
-                <h1>Main</h1>
-                <Link to="/main/path1">path1</Link>
-                <Link to="/main/path2">path2</Link>
-                <Route
-                    path="/main/path1"
-                    component={() => <h2>path1</h2>}
-                />
-                <Route
-                    path="/main/path2"
-                    component={() => <h2>path2</h2>}
-                />
+                {
+                    all.map(item => {
+                        return (
+                            <Card title={<div style={{display:'flex'}}>
+                                {item.ptype}
+                                <Tag color="blue">{item.cname}</Tag>
+                                <Tag color="cyan">{item.ctime}</Tag>
+                                <Tag color="purple">{item.ptype}</Tag>
+                            </div>} key={item.id}>
+                                <Tag color="green">{item.title}</Tag>
+                            </Card>
+                        );
+                    })
+                }
             </div>
         );
     }
