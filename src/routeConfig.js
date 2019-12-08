@@ -2,6 +2,7 @@
 import Index from './Page/Index';
 import Main from './Page/Main';
 import Login from './Page/Login';
+import Write from './Page/Write';
 
 const routeConfig = [
     {
@@ -17,6 +18,10 @@ const routeConfig = [
     {
         path: '/main',
         component: Main,
+    },
+    {
+        path: '/write',
+        component: Write,
     },
 ];
 export default routeConfig;

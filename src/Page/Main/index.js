@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import request from '../../Tools/fetch';
 import Nav from '../../Components/Nav';
 import Background from '../../Components/Background';
-import { Card, Tag } from 'antd';
+import Footer from '../../Components/Footer';
+import { Card, Tag, Badge, Button } from 'antd';
 
 class Index extends Component {
     constructor() {
@@ -46,32 +47,47 @@ class Index extends Component {
                 <Nav
                     items={[
                         { type: 'home', path: '/' },
-                        { type: 'edit', path: '/edit' },
+                        { type: 'write', path: '/write' },
                         { type: 'setting', path: '/setting' },
                         { type: 'login', path: '/login' },
                         { type: 'bg-colors' },
                     ]}
                 />
-                <Card style={{ width: '100%' }}>
+                <Card style={{ width: '100%',marginBottom: '20px',marginTop: '10px' }}>
                     <p>{quote.content}</p>
                     <div>
                         <Tag onClick={this.clickShowTran} color="magenta">Show Translation</Tag>
                         {showTranslation && <span>{quote.translation}</span>}
                     </div>
                 </Card>
-                {
-                    all.map(item => {
-                        return (
-                            <Card title={<div style={{display:'flex', justifyContent:'space-between', marginBottom: '20px'}}>
-                                {item.ptype}
-                                <Tag color="blue">{item.cname}</Tag>
-                                <Tag color="cyan">{item.ctime}</Tag>
-                            </div>} key={item.id}>
-                                <Tag color="green">{item.title}</Tag>
-                            </Card>
-                        );
-                    })
-                }
+                <div style={{minHeight: '100vh'}}>
+                    {
+                        all.map(item => {
+                            return (
+                                <Card hoverable={true} style={{marginBottom: '20px'}} 
+                                    title={<div style={{display:'flex', justifyContent:'space-between'}}>
+                                            {item.ptype}
+                                            <Tag style={{lineHeight: '22px'}} color="blue">{item.cname}</Tag>
+                                            <Tag color="cyan">{item.ctime}</Tag>
+                                        </div>}
+                                    key={item.id}>
+                                    <div>
+                                        <h3>{item.title}</h3>
+                                        <span>
+                                            <Badge count={item.star} style={{ backgroundColor: '#52c41a',marginRight: '20px' }} >
+                                            </Badge>
+                                            <Badge count={item.diss} />
+                                        </span>
+                                        <span style={{float: 'right'}}>
+                                            <Button size="small" type="primary">Show Detail</Button>
+                                        </span>
+                                    </div>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+                <Footer />
             </div>
         );
     }

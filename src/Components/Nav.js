@@ -17,7 +17,7 @@ class Nav extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{position: 'sticky', top: '0',zIndex: 2}}>
             <Menu
                 onClick={this.handleClick}
                 selectedKeys={[this.state.current]}

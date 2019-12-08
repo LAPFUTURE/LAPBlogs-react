@@ -58,24 +58,12 @@ class Index extends Component {
                         </p>
                         <p>
                             If you have some interests in Web Programming, you
-                            can join QQGroup:
-                            {/* <a-popover title="QQGroup:1012810379">
-                                <template slot="content">
-                                    <p>
-                                        <img
-                                            src="../assets/qqgroup.png"
-                                            alt="QQGroup:1012810379"
-                                        />
-                                    </p>
-                                </template>
-                                <a href="javascript:void(0);">1012810379</a>{' '}
-                            </a-popover> */}
-                            , we can learn from each other and enjoy
+                            can join QQGroup:1012810379, we can learn from each other and enjoy
                             Programmings.
                         </p>
                         <p>
-                            In free time, I usually watch some web course, play
-                            SGS game, chat with my friends and my GF.
+                            In free time, I usually watch some web course, read JavaScript books, play
+                            SGS game, chat with my friends.
                         </p>
                     </Col>
                     <Col>
