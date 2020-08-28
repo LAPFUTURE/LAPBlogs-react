@@ -15,10 +15,10 @@ class Index extends Component {
         };
         this.clickShowTran = this.clickShowTran.bind(this);
     }
-    clickShowTran(){
-        const { showTranslation } = this.state 
+    clickShowTran() {
+        const { showTranslation } = this.state; 
         this.setState({
-            showTranslation: !showTranslation
+            showTranslation: !showTranslation,
         });
     }
     componentDidMount() {
@@ -28,15 +28,15 @@ class Index extends Component {
     ask() {
         request('/quote/ask_quote').then(res => {
             this.setState({
-                quote: res.data
-            })
+                quote: res.data,
+            });
         });
     }
     getAll() {
         request('/article/get_all').then(res => {
             this.setState({
-                all: res.data
-            })
+                all: res.data,
+            });
         });
     }
     render() {
@@ -47,7 +47,7 @@ class Index extends Component {
                 <Nav
                     items={[
                         { type: 'home', path: '/' },
-                        { type: 'write', path: '/write' },
+                        { type: 'edit', path: '/write' },
                         { type: 'setting', path: '/setting' },
                         { type: 'login', path: '/login' },
                         { type: 'bg-colors' },

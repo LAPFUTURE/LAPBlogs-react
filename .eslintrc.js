@@ -3,7 +3,7 @@ const OFF = 0;
 const ERROR = 2;
 
 module.exports = {
-    extends: 'eslint-config-airbnb',
+    extends: '', // eslint-config-airbnb
     ecmaFeatures: {
         jsx: true,
         modules: true,

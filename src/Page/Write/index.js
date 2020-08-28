@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
+
 class Index extends Component {
     constructor(props) {
       super(props)
@@ -14,8 +15,9 @@ class Index extends Component {
   
     render() {
       return (
-        <ReactQuill value={this.state.text}
-                    onChange={this.handleChange} />
+        <div style={{ width: '100%', minHeight: '100vh'}}>
+          <ReactQuill value={this.state.text} onChange={this.handleChange} />
+        </div>
       )
     }
 }
